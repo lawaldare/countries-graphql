@@ -1,0 +1,42 @@
+<ng-container *ngIf="country$ | async as country">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <span class="list-group-item-left">Code</span>
+      <span class="list-group-item-right">{{ country.code }}</span>
+    </li>
+    <li class="list-group-item">
+      <span class="list-group-item-left">Name</span>
+      <span class="list-group-item-right">{{ country.name }}</span>
+    </li>
+    <li class="list-group-item">
+      <span class="list-group-item-left">Currency</span>
+      <span class="list-group-item-right">{{ country.currency }}</span>
+    </li>
+    <li class="list-group-item">
+      <span class="list-group-item-left">Continent</span>
+      <span class="list-group-item-right">{{ country.continent.name }}</span>
+    </li>
+    <li class="list-group-item">
+      <span class="list-group-item-left">Phone Code</span>
+      <span class="list-group-item-right">{{ country.phone }}</span>
+    </li>
+    <li class="list-group-item">
+      <span class="list-group-item-left">Native</span>
+      <span class="list-group-item-right">{{ country.native }}</span>
+    </li>
+    <li class="list-group-item">
+      <span class="list-group-item-left">Flag</span>
+      <span class="list-group-item-right">{{ country.emoji }}</span>
+    </li>
+    <li class="list-group-item">
+      <span class="list-group-item-left">Languages</span>
+      <div class="list-group-item-right">
+        <span
+          class="badge rounded-pill text-bg-primary"
+          *ngFor="let lang of country.languages"
+          >{{ lang.name }}</span
+        >
+      </div>
+    </li>
+  </ul>
+</ng-container>

@@ -1,0 +1,24 @@
+<ng-container *ngIf="countries$ | async as countries; else loadingTemplate">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Name</th>
+        <th scope="col">Currency</th>
+        <th scope="col">Continent</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let country of countries"
+        [routerLink]="['/country', country.code]"
+      >
+        <th scope="row">{{ country.code }}</th>
+        <td>{{ country.name }}</td>
+        <td>{{ country.currency }}</td>
+        <td>{{ country.continent.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+<ng-template #loadingTemplate> Loading... </ng-template>
